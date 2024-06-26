@@ -3086,6 +3086,7 @@ local TelekastenCmd = {
             { "insert link", "insert_link", M.insert_link },
             { "follow link", "follow_link", M.follow_link },
             { "goto today", "goto_today", M.goto_today },
+            { "goto tomorrow", "goto_tomorrow", M.goto_tomorrow },
             { "new note", "new_note", M.new_note },
             { "goto thisweek", "goto_thisweek", M.goto_thisweek },
             { "find weekly notes", "find_weekly_notes", M.find_weekly_notes },
