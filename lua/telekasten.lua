@@ -1751,6 +1751,29 @@ local function GotoToday(opts)
     end)
 end
 
+
+--
+-- GotoTomorrow:
+-- ----------
+--
+-- find today's daily note and create it if necessary.
+--
+local function GotoTomorrow(opts)
+    opts = opts or {}
+
+    global_dir_check(function(dir_check)
+        if not dir_check then
+            return
+        end
+
+        local today = os.date(dateutils.dateformats.date) + 1
+        opts.date_table = os.date("*t")
+        opts.date = today
+        opts.dailies_create_nonexisting = true -- Always use template for GotoTomorrow
+        GotoDate(opts)
+    end)
+end
+
 --
 -- FindNotes:
 -- ----------
@@ -3031,6 +3054,7 @@ M.insert_link = InsertLink
 M.follow_link = FollowLink
 M.setup = _setup
 M.goto_today = GotoToday
+M.goto_tomorrow = GotoTomorrow
 M.new_note = CreateNote
 M.goto_thisweek = GotoThisWeek
 M.find_weekly_notes = FindWeeklyNotes
